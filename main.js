@@ -15,7 +15,7 @@ let attic = new Room("Attic","I would need a light to see in here.");
 let basement = new Room("Basement","If I were to go down here like an idiot, I'll need a light to see.");
 let spark_plug = new Item("Spark Plug","is used to power small machines.")
 let oil_lamp1 = new Item("Empty oil lamp","empty.")
-let oil_canister = new Item("Oil Canister","filled to the brim with oil.")
+let oil_canister = new Item("Oil Canister","filled to the brim with oil, strange the U.S should've bombed me by now.")
 let armor_padding = new Item("Armor Padding","made of some sort of gel.")
 let battering_ram = new Item("Battering Ram","going to help me break out, but it'll be loud.")
 let ladder = new Item("Ladder","foldable.")
@@ -28,10 +28,11 @@ let heat_glue1 = new Item("Heatproof Glue","used for things that produce a lot o
 let heat_glue2 = new Item("Empty Glue bottle","empty, but at least it can be thrown.")
 let small_device = new Item("Tracker","going to tell me if someone is near, I hope I won't need it.")
 let swat_vest1 = new Item("SWAT vest","lacking in protective padding.")
+let swat_vest2 = new Item("Padded SWAT vest","now padded with gel.")
 let coat = new Item("Coat","Heatproof, and it came with a pressure valve.")
 let pressure_valve = new Item("Pressure valve","in good shape dispite having a half-life of 3 years.")
 let lighter1 = new Item("Broken Lighter","going to burn me if I use it without fixing the hole, 're Starter' is engraved on it.")
-
+let lighter2 = new Item("Lighter","now usable, has 'Emergency fire starter' engraved on it.")
 
 // Put them in their spots
 hallway.addItem(vase);
