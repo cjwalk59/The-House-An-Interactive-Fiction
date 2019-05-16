@@ -74,7 +74,7 @@ vase.eat = function() {
 }
 
 orphan.eat = function(){
- addLine("You ate the crying child to stop the screeches, it cries out in excruciating pain in a futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place, but this meager sacrifice cannot saciate your desire for the innocent. Are you happy with yourself? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. Was the silence really worth it?")
+ addLine("You ate the crying child to stop the screeches, it cries out in excruciating pain in a futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place and powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but this meager sacrifice cannot saciate your desire for the innocent. Are you happy with yourself? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. Was the silence really worth it?")
 }
 
 let locations = [];

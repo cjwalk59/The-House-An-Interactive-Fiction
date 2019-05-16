@@ -26,6 +26,22 @@ addAction(jumpaction, jump);
 
 
 //To create a function that interacts with an object...
+let eatAction = /eat/;
+let eat = function(action, player, object) {
+  if (action == 'eat') {
+    object.eat();
+  }
+  return player;
+}
+addAction(eatAction, eat);
+
+vase.eat = function() {
+  addLine("You ate the " + this.name)
+}
+
+orphan.eat = function(){
+ addLine("You ate the crying child to stop the screeches, it cries out in excruciating pain as a futile attempt for help, but you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust chiming in your head, blood spews everywhere you are a murderer. Are you happy with yourself? Think of it's foster parents who where worried sick about there new child since they cannot have one naturally, and you just tore it apart like an animal. Was the silence really worth it?")
+}
 // You can also extend the class, adding an eat() method to all items in your game.
 // Item.prototype.eat = function() {
 //   addLine("You ate the " + this.name);
