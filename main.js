@@ -1,7 +1,6 @@
 // Create the contents of your room here.
 alert("Loading main.js!"); //Don't change this line
 player = new Player()
-
 //Create your objects
 let hallway = new Room("dusty hallway", "clouds of dust kick up with every step.");
 let vase = new Item("vase", "made of blue glass, chipped on top. Filled with a dark liquid.")
@@ -61,6 +60,16 @@ closet.addItem(coat);
 basement.addItem(swat_vest1);
 basement.addItem(battering_ram);
 
+let takeAction = /take/;
+let take = function(action, player, object) {
+  if (action == 'take') {
+    player.inventory.push(object);
+    addLine("You take the " + object.name + ' and put it away.')
+  }
+  return player;
+}
+addAction(takeAction, take);
+
 let feckAction = /feck/;
 let feck = function(action, player, object) {
  if (action == 'feck'){
@@ -107,12 +116,8 @@ let sickflip = function(action, player, object) {
 addAction(sickflipAction, sickflip);
 
 orphan.eat = function(){
- addLine("You gorge on the crying child to stop the screeches, it cries out in excruciating pain in a desperate but futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place and powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it?")
+ addLine("You gorge on the crying child to stop the screeches, it cries out in excruciating pain in a desperate but futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place and powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it you heartless bastard!?")
 }
 
 let locations = [];
-locations.push(hallway, room);
-player.location = new Room("hallway", "It is dark. The floorboards creak when you walk.");
-player.location.addItems(locations);
 player.move(hallway);
-player.location.enter();
