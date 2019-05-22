@@ -1,5 +1,4 @@
 // Handle user input
-
 var regexes = [
   /enter/,
   /go back/,
@@ -29,6 +28,7 @@ var actions = [
     }
     return player;
   },
+
 ]
 
 function parse(input) {
@@ -80,7 +80,6 @@ function doAction(action, player, newLocation) {
   }
   return player
 }
-
 // This function gets triggered whenever the 'enter' key gets pressed
 document.addEventListener("keydown", keyDownHandler, false);
 
@@ -119,7 +118,6 @@ function keyDownHandler(e) {
   let elmnt = document.getElementById("footer");
   elmnt.scrollIntoView();
 }
-
 // Print message to the screen
 function addLine(text, id) {
   let para = document.createElement("P");
@@ -130,7 +128,6 @@ function addLine(text, id) {
   para.appendChild(t);
   document.getElementById("feed").appendChild(para);
 }
-
 // Room class
 class Room {
   constructor(name, descriptor, contents) {
@@ -144,8 +141,6 @@ class Room {
   }
 
   enter() {
-
-
     let text;
     //Get contents of room
     let contents = ""
@@ -177,9 +172,7 @@ class Room {
     }
   }
 
-
   exit() {
-
   }
 
   addItems(items) {
@@ -191,6 +184,10 @@ class Room {
   addItem(item) {
     this.contents.push(item);
   }
+
+  // addComboItem(item) {
+  //   this.contents.push(item);
+  // }
 }
 
 class Item {
@@ -199,6 +196,13 @@ class Item {
     this.descriptor = descriptor;
   }
 
+// class ComboItem {
+//   constructor(name, descriptor) {
+//     this.name = name;
+//     this.descriptor = descriptor;
+//   }
+//
+}
   inspect() {
     let description = this.descriptor
     addLine("The " + this.name + " is " + description)
@@ -209,6 +213,7 @@ class Player {
   constructor(location) {
     this.location = location;
     this.cameFrom = null;
+    this.inventory = [];
   }
 
   move(location) {
