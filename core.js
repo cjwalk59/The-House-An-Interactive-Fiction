@@ -1,7 +1,7 @@
 // Handle user input
 var regexes = [
   /enter/,
-  /go back/,
+  /leave/,
   /inspect/,
 ]
 
@@ -20,7 +20,7 @@ var actions = [
     return player;
   },
   function(action, player, object) {
-    if (action == 'go back') {
+    if (action == 'leave') {
       let destination = player.cameFrom;
       player.cameFrom = player.location;
       player.location = destination;
