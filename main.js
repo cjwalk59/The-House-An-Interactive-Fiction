@@ -3,7 +3,7 @@ alert("Loading main.js!"); //Don't change this line
 player = new Player()
 //Create your objects
 let hallway = new Room("dusty hallway", "clouds of dust kick up with every step.");
-let start new Room("tutorial room","Going to help you survive.");
+let start = new Room("tutorial room","going to help you survive.");
 let note = new Item("inspect worthy note","saying that you can DISAPPOINTYOURFAMILY, EAT orphans, SICKFLIP, say FECK, and ENDMYSUFFERING.")
 let gun = new Item("pistol","empty, COMBINE with bullet.")
 let bullet = new Item("bullet","for a pistol, TAKE me.")
