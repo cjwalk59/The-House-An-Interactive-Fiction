@@ -3,7 +3,12 @@ alert("Loading main.js!"); //Don't change this line
 player = new Player()
 //Create your objects
 let hallway = new Room("dusty hallway", "clouds of dust kick up with every step.");
+let start new Room("tutorial room","Going to help you survive.");
+let note = new Item("inspect worthy note","saying that you can DISAPPOINTYOURFAMILY, EAT orphans, SICKFLIP, say FECK, and ENDMYSUFFERING.")
+let gun = new Item("pistol","empty, COMBINE with bullet.")
+let bullet = new Item("bullet","for a pistol, TAKE me.")
 let vase = new Item("vase", "made of blue glass, chipped on top. Filled with a dark liquid.")
+let warning = new Item("warning","saying not to look at this link, https://www.youtube.com/watch?v=dQw4w9WgXcQ strange... maybe you should ignore the warning and do it anyway.")
 let room = new Room("dark room", "It is dark");
 let boiler_room = new Room("boiler room","It's colder than normal.");
 let boiler = new Room("boiler","The boiler doesn't seem to be working.");
@@ -33,8 +38,12 @@ let pressure_valve = new Item("pressure valve","in good shape dispite having a h
 let lighter1 = new Item("broken lighter","going to burn me if I use it without fixing the hole, 're Starter' is engraved on it.")
 let lighter2 = new Item("lighter","now usable, has 'Emergency fire starter' engraved on it.")
 let orphan = new Item("disabled orphan","only a newborn and it's already abused regularly, it's so LOUD.")
-let warning = new Item("warning","saying not to look at this link, https://www.youtube.com/watch?v=dQw4w9WgXcQ strange... maybe you should ignore the warning and do it anyway.")
 // Put them in their spots
+start.addItem(hallway);
+start.addItem(gun);
+start.addItem(bullet);
+start.addItem(warning);
+start.addItem(note);
 hallway.addItem(vase);
 hallway.addItem(boiler_room);
 hallway.addItem(basement);
@@ -88,14 +97,14 @@ let endmysuffering = function(action, player, object) {
 }
 addAction(endmysufferingAction, endmysuffering);
 
-let dabAction = /dab/;
-let dab = function(action, player, object) {
-  if (action == 'dab') {
+let disappintyourfamilyAction = /disappintyourfamily/;
+let disappintyourfamily = function(action, player, object) {
+  if (action == 'disappintyourfamily') {
     addLine("You dab and immediately get shot, when you wake a voice says welcome back and goes quiet, this is why you were put up for adoption you stupid fecker.")
   }
   return player;
 }
-addAction(dabAction, dab);
+addAction(disappintyourfamilyAction, disappintyourfamily);
 
 let eatAction = /eat/;
 let eat = function(action, player, object) {
@@ -120,4 +129,4 @@ orphan.eat = function(){
 }
 
 let locations = [];
-player.move(hallway);
+player.move(start);

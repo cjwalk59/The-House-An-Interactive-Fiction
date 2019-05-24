@@ -184,10 +184,6 @@ class Room {
   addItem(item) {
     this.contents.push(item);
   }
-
-  // addComboItem(item) {
-  //   this.contents.push(item);
-  // }
 }
 
 class Item {
@@ -196,13 +192,6 @@ class Item {
     this.descriptor = descriptor;
   }
 
-// class ComboItem {
-//   constructor(name, descriptor) {
-//     this.name = name;
-//     this.descriptor = descriptor;
-//   }
-//
-}
   inspect() {
     let description = this.descriptor
     addLine("The " + this.name + " is " + description)
