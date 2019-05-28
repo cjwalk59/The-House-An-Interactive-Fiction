@@ -19,7 +19,7 @@ let gun = new Item("magnum","empty, COMBINE with bullet.")
 let bullet = new Item("bullet","for a pistol, TAKE me.")
 let ammo = new Item("ammo","a full container of lead slugs.")
 let vase = new Item("vase", "made of blue glass, chipped on top. Filled with a dark liquid.")
-let warning = new Item("warning","saying not to look at this link, https://www.youtube.com/watch?v=dQw4w9WgXcQ strange... maybe you should ignore the warning and do it anyway.")
+let warning = new Item("warning","saying not to look at this link, https://www.youtube.com/watch?v=dQw4w9WgXcQ and the handwriting is strangely familiar to you, like you know who wrote this... maybe you should ignore the warning and do it anyway.")
 let spark_plug = new Item("spark plug","is used to power small machines.")
 let oil_lamp1 = new Item("empty oil lamp","empty.")
 let oil_canister = new Item("oil canister","filled to the brim with oil, strange the U.S should've bombed me by now.")
@@ -58,7 +58,6 @@ hallway.addItem(vase);
 hallway.addItem(boiler_room);
 hallway.addItem(basement);
 hallway.addItem(orphan);
-hallway.addItem(warning);
 basement.addItem(swat_vest1);
 basement.addItem(battering_ram);
 basement.addItem(damp_room);
@@ -87,6 +86,16 @@ attic.addItem(small_device);
 closet.addItem(lockbox_key);
 closet.addItem(coat1);
 
+let checkAction =/check/;
+let check =function(action, player, object) {
+  if (action == 'check'){
+    let l = list(player.inventory);
+    addLine("Item List: " + l)
+  }
+  return player
+}
+addAction(checkAction, check);
+
 let takeAction = /take/;
 let take = function(action, player, object) {
   if (action == 'take') {
@@ -106,18 +115,18 @@ let feck = function(action, player, object) {
 }
 addAction(feckAction, feck);
 
-let endmysufferingAction = /endmysuffering/;
+let endmysufferingAction = /end my suffering/;
 let endmysuffering = function(action, player, object) {
-  if (action == 'endmysuffering') {
-    addLine("You've finally had enough of the pain and you took some painkillers, what did you think I meant and where did I get this?")
+  if (action == 'end my suffering') {
+    addLine("You've finally had enough of the pain and take some painkillers for your stomach, what did you think I meant and do you know why you have them?")
   }
   return player;
 }
 addAction(endmysufferingAction, endmysuffering);
 
-let disappointyourfamilyAction = /disappointyourfamily/;
+let disappointyourfamilyAction = /disappoint your family/;
 let disappointyourfamily = function(action, player, object) {
-  if (action == 'disappointyourfamily') {
+  if (action == 'disappoint your family') {
     addLine("You dab and immediately get shot, when you wake a voice says welcome back and goes quiet, this is why you were put up for adoption you stupid fecker.")
   }
   return player;

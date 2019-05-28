@@ -83,6 +83,28 @@ function doAction(action, player, newLocation) {
 // This function gets triggered whenever the 'enter' key gets pressed
 document.addEventListener("keydown", keyDownHandler, false);
 
+function list(table) {
+  let contents = ""
+  let text;
+  if (table.length > 0) {
+    for (var i = 0; i < table.length; i++) {
+      if (i == table.length - 1) {
+        if (i > 0) {
+          contents = contents + " and a " + table[i].name + ".";
+        } else {
+          contents = contents + table[i].name + ".";
+        }
+      } else {
+        contents = contents + table[i].name + ", ";
+      }
+    }
+    text = "There's a " + contents;
+  } else {
+    text = "There's nothing.";
+  }
+  return text
+}
+
 function keyDownHandler(e) {
   if (e.key == "Enter") {
     let input = document.getElementById('inputsm').value
@@ -111,7 +133,7 @@ function keyDownHandler(e) {
       player = doAction(results[1], player, newLocation)
       console.log("Player location: " + player.location.name)
     } else {
-      addLine("Time passes... You start feeling nervous.")
+      addLine("Time passes... You feel like your going to puke.")
     }
     document.getElementById("inputsm").value = "";
   }
@@ -141,25 +163,25 @@ class Room {
   }
 
   enter() {
-    let text;
+    let text = list(this.contents);
     //Get contents of room
-    let contents = ""
-    if (this.contents.length > 0) {
-      for (var i = 0; i < this.contents.length; i++) {
-        if (i == this.contents.length - 1) {
-          if (i > 0) {
-            contents = contents + " and a " + this.contents[i].name + ".";
-          } else {
-            contents = contents + this.contents[i].name + ".";
-          }
-        } else {
-          contents = contents + this.contents[i].name + ", ";
-        }
-      }
-      text = "You see a " + contents;
-    } else {
-      text = "You see nothing.";
-    }
+    // let contents = ""
+    // if (this.contents.length > 0) {
+    //   for (var i = 0; i < this.contents.length; i++) {
+    //     if (i == this.contents.length - 1) {
+    //       if (i > 0) {
+    //         contents = contents + " and a " + this.contents[i].name + ".";
+    //       } else {
+    //         contents = contents + this.contents[i].name + ".";
+    //       }
+    //     } else {
+    //       contents = contents + this.contents[i].name + ", ";
+    //     }
+    //   }
+    //   text = "You see a " + contents;
+    // } else {
+    //   text = "You see nothing.";
+    // }
     addLine("You find yourself in a " + this.name + ". " + text);
   }
 
