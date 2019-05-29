@@ -2,27 +2,39 @@
 alert("Loading main.js!"); //Don't change this line
 player = new Player()
 //Create your objects
-let hallway = new Room("dusty hallway", "Clouds of dust kick up with every step.");
-let pit = new Room("void","how did you get here?")
-let start = new Room("tutorial room","Learn how to survive.");
-let vase = new Item("vase", "made of blue glass, chipped on top. Filled with a dark liquid.")
-let gun = new Item("pistol","empty, use COMBINE with the bullet.")
-let note = new Item("inspect worthy note","going to help you survive, you can also DISAPPOINTYOURFAMILY, EAT orphans, say FECK, ENDMYSUFFERING, and do a SICKFLIP.")
-let bullet = new Item("bullet","for pistols, TAKE me.")
-let warning = new Item("warning","saying not to look at this link, https://www.youtube.com/watch?v=dQw4w9WgXcQ strange... maybe you should ignore the warning and do it anyway.")
-let room = new Room("dark room", "It is dark");
+let hallway = new Room("hallway", "clouds of dust kick up with every step.");
+let start = new Room("tutorial room","going to help you survive.");
+let damp_room = new Room("dark room", "It is dark and flooded.");
 let boiler_room = new Room("boiler room","It's colder than normal.");
-let boiler = new Room("boiler","The boiler doesn't seem to be working.");
+let boiler = new Room("boiler","The boiler doesn't seem to be working since it got so hot it evaprated water.");
 let bodybag = new Room("bodybag","I could hide in this but I won't know when I'm safe without assistance.");
-let garage = new Room("garage","The exit is welded shut.");
+let garage = new Room("garage","The exit has melted shut, I'll need to ram it open after I put a few cracks in it.");
 let closet = new Room("closet","There's something on top but I'm not tall enough.");
 let attic = new Room("attic","I would need a light to see in here.");
 let basement = new Room("basement","If I were to go down here like an idiot, I'll need a light to see.");
+let freezer = new Room("freezer","It seems to be broken and full of slush.");
+let driveway = new Room("driveway","It's so hot the asphalt is melting, it's as if I'm not on earth... or maybe I'm just going crazy.");
+let park = new Room("abandoned park","This place had seen better days and I want to remember those days, but all I can recall is shattered memories of the past.")
+let note = new Item("inspect worthy note","saying that you can DISAPPOINT YOUR FAMILY, EAT orphans, SICKFLIP, say FECK, and END MY SUFFERING, but don't forget you can 123 CHECK up 123 to see what you have.")
+let gun = new Item("magnum","empty, COMBINE with bullet.")
+let bullet = new Item("bullet","for a pistol, TAKE me.")
+let ammo = new Item("ammo belt","a full belt of lead slugs and a future of painful painters colic.")
+let vase = new Item("vase", "made of blue glass, chipped on top. Filled with a dark liquid.")
+let warning = new Item("warning","saying not to look at this video address, https://www.youtube.com/watch?v=dQw4w9WgXcQ and the handwriting is strangely familiar to you, like you know who wrote this... maybe you should ignore the warning and do it anyway.")
 let spark_plug = new Item("spark plug","is used to power small machines.")
 let oil_lamp1 = new Item("empty oil lamp","empty.")
+let oil_lamp2 = new Item("oil lamp","full of oil.")
 let oil_canister = new Item("oil canister","filled to the brim with oil, strange the U.S should've bombed me by now.")
+let medkit = new Item("medkit","only equipped to deal with physical wounds and nothing else.")
+let adrenaline = new Item("adrenaline","full of potent chemicals that will make you energenic but irritable... too irritable.")
 let armor_padding = new Item("padding","made of some sort of gel.")
 let battering_ram = new Item("battering ram","going to help me break out, but it'll be loud.")
+let car_jack = new Item("car jack","a little slippery.")
+let cement_mix = new Item("cement mix","sturdier than other variations of cement.")
+let cold_pack = new Item("Cold pack","unused, but strong.")
+let cryocell = new Item("cryocell","set to burst open with freezing cold chemicals when punctured, maybe too cold.")
+let needle = new Item("needle","super pointy and may even make holes too small to see.")
+let mini_fan = new Item("mini fan","a little old, but it will air out small spaces and even comes with a handy belt clip.")
 let ladder = new Item("large ladder","foldable.")
 let wrench = new Item("wrench","rusty but it'll work as a tool and a weapon.")
 let bolts = new Item("metal bolts","is useful for industrial repair.")
@@ -32,13 +44,18 @@ let lockbox_key = new Item("lockbox key","for a lockbox, duh")
 let heat_glue1 = new Item("heatproof glue","used for things that produce a lot of heat.")
 let heat_glue2 = new Item("empty glue bottle","empty, but at least it can be thrown.")
 let small_device = new Item("tracker","going to tell me if someone is near, I hope I won't need it.")
-let swat_vest1 = new Item("SWAT vest","lacking in protective padding.")
-let swat_vest2 = new Item("padded SWAT vest","now padded with gel.")
-let coat = new Item("coat","heatproof, and it came with a pressure valve.")
+let swat_vest1 = new Item("SWAT vest","lacking in protective padding, but came with ammo.")
+let swat_vest2 = new Item("padded SWAT vest","now padded with gel but it's only good for force distribution and not bullets.")
+let coat1 = new Item("coat","fire resistant, and it came with a pressure valve.")
+let coat2 = new Item("chilled coat","completely heatproof, this thing won't melt even during a heat wave... I think I'm in a heat wave.")
 let pressure_valve = new Item("pressure valve","in good shape dispite having a half-life of 3 years.")
 let lighter1 = new Item("broken lighter","going to burn me if I use it without fixing the hole, 're Starter' is engraved on it.")
 let lighter2 = new Item("lighter","now usable, has 'Emergency fire starter' engraved on it.")
-let orphan = new Item("disabled orphan","only a newborn and it's already abused regularly, it's so LOUD.")
+let generator = new Item("generator","an old fashoned guzzler.")
+let dolly = new Item("dolly","going to save my back a lot of trouble.")
+let jackhammer = new Item("jackhammer","in surprisingly good shape, I can certain put dents in things with it if I could lift it.")
+let car = new Item("police car","completely totaled and will never work again, but why all the molten metal?")
+let orphan = new Item("disabled orphan","only a newborn and it's already abused regularly, it's so LOUD and riddled with singed holes.")
 // Put them in their spots
 start.addItem(gun);
 start.addItem(bullet);
@@ -49,6 +66,16 @@ hallway.addItem(vase);
 hallway.addItem(boiler_room);
 hallway.addItem(basement);
 hallway.addItem(orphan);
+basement.addItem(swat_vest1);
+basement.addItem(battering_ram);
+basement.addItem(needle);
+basement.addItem(freezer);
+basement.addItem(damp_room);
+freezer.addItem(cold_pack);
+freezer.addItem(cryocell);
+damp_room.addItem(cement_mix);
+damp_room.addItem(car_jack);
+damp_room.addItem(mini_fan);
 boiler_room.addItem(boiler);
 boiler_room.addItem(bodybag);
 boiler_room.addItem(spark_plug);
@@ -62,12 +89,28 @@ garage.addItem(bolts);
 garage.addItem(lockbox);
 garage.addItem(attic);
 garage.addItem(heat_glue1);
+garage.addItem(generator);
+garage.addItem(jackhammer);
+garage.addItem(driveway);
+driveway.addItem(car);
+driveway.addItem(park);
 attic.addItem(oil_canister);
+attic.addItem(adrenaline);
 attic.addItem(small_device);
 closet.addItem(lockbox_key);
-closet.addItem(coat);
-basement.addItem(swat_vest1);
-basement.addItem(battering_ram);
+closet.addItem(coat1);
+closet.addItem(medkit);
+closet.addItem(dolly);
+
+let checkAction = /check/;
+let check =function(action, player, object) {
+  if (action == 'check'){
+    let l = list(player.inventory);
+    addLine("Item List: " + l)
+  }
+  return player
+}
+addAction(checkAction, check);
 
 let takeAction = /take/;
 let take = function(action, player, object) {
@@ -88,23 +131,23 @@ let feck = function(action, player, object) {
 }
 addAction(feckAction, feck);
 
-let endmysufferingAction = /endmysuffering/;
+let endmysufferingAction = /end my suffering/;
 let endmysuffering = function(action, player, object) {
-  if (action == 'endmysuffering') {
-    addLine("You've finally had enough of the pain and you took some painkillers, what did you think I meant?")
+  if (action == 'end my suffering') {
+    addLine("You've finally had enough of the pain and take some pills... for your stomach, what did you think I meant and do you know why you have them?")
   }
   return player;
 }
 addAction(endmysufferingAction, endmysuffering);
 
-let dabAction = /disappointyourfamily/;
-let dab = function(action, player, object) {
-  if (action == 'disappointyourfamily') {
+let disappointyourfamilyAction = /disappoint your family/;
+let disappointyourfamily = function(action, player, object) {
+  if (action == 'disappoint your family') {
     addLine("You dab and immediately get shot, when you wake a voice says welcome back and goes quiet, this is why you were put up for adoption you stupid fecker.")
   }
   return player;
 }
-addAction(dabAction, dab);
+addAction(disappointyourfamilyAction, disappointyourfamily);
 
 let eatAction = /eat/;
 let eat = function(action, player, object) {
@@ -125,7 +168,7 @@ let sickflip = function(action, player, object) {
 addAction(sickflipAction, sickflip);
 
 orphan.eat = function(){
- addLine("You gorge on the crying child to stop the screeches, it cries out in excruciating pain in a desperate but futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place and powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it you heartless bastard!?")
+ addLine("You gorge on the crying child to stop the screeches, it cries out in excruciating pain in a desperate but futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place. As powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but no this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it you heartless bastard!?")
 }
 
 let locations = [];
