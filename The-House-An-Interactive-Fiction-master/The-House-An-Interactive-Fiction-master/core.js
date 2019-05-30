@@ -90,7 +90,7 @@ function list(table) {
     for (var i = 0; i < table.length; i++) {
       if (i == table.length - 1) {
         if (i > 0) {
-          contents = contents + " and a " + table[i].name + ".";
+          contents = contents + " and a(n) " + table[i].name + ".";
         } else {
           contents = contents + table[i].name + ".";
         }
@@ -98,7 +98,7 @@ function list(table) {
         contents = contents + table[i].name + ", ";
       }
     }
-    text = "There's a " + contents;
+    text = "There's a(n) " + contents;
   } else {
     text = "There's nothing.";
   }
@@ -133,7 +133,7 @@ function keyDownHandler(e) {
       player = doAction(results[1], player, newLocation)
       console.log("Player location: " + player.location.name)
     } else {
-      addLine("Time passes... You feel like your going to puke.")
+      addLine("As time passes you start to feel like your going to puke.")
     }
     document.getElementById("inputsm").value = "";
   }
@@ -218,6 +218,7 @@ class Item {
     let description = this.descriptor
     addLine("The " + this.name + " is " + description)
   }
+
 }
 
 class Player {
