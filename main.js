@@ -1,6 +1,9 @@
 // Create the contents of your room here.
 alert("Loading main.js!"); //Don't change this line
 player = new Player()
+// let h = 10
+// p = false
+// f = false
 //Create your objects
 let hallway = new Room("hallway", "clouds of dust kick up with every step.");
 let start = new Room("tutorial room","going to help you survive.");
@@ -51,7 +54,6 @@ let orphan = new Item("disabled orphan","only a newborn and it's already abused 
 // Put them in their spots
 start.addItem(gun);
 start.addItem(bullet);
-start.addItem(warning);
 start.addItem(note);
 start.addItem(hallway);
 hallway.addItem(vase);
@@ -60,6 +62,7 @@ hallway.addItem(basement);
 hallway.addItem(orphan);
 basement.addItem(swat_vest1);
 basement.addItem(battering_ram);
+basement.addItem(warning);
 basement.addItem(damp_room);
 damp_room.addItem(cement_mix);
 damp_room.addItem(car_jack);
@@ -86,10 +89,11 @@ attic.addItem(small_device);
 closet.addItem(lockbox_key);
 closet.addItem(coat1);
 
-let checkAction =/check/;
+let checkAction = /check/;
 let check =function(action, player, object) {
   if (action == 'check'){
     let l = list(player.inventory);
+    addLine("Health: " + h)
     addLine("Item List: " + l)
   }
   return player
@@ -152,8 +156,36 @@ let sickflip = function(action, player, object) {
 addAction(sickflipAction, sickflip);
 
 orphan.eat = function(){
- addLine("You gorge on the crying child to stop the screeches, it cries out in excruciating pain in a desperate but futile attempt to be spared, but no you crush it in between your teeth as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place. As powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but no this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it you heartless bastard!?")
+ addLine("You gorge on the crying child to stop the screeches of agony, it cries out in excruciating pain in a desperate but futile attempt to be spared, and yet you crush it in between your teeth anyway as you mercilessly slaughter the innocent child with nothing but bloodlust and malice chiming in your skull as blood spews everywhere and onto the walls of this damned place. As powdered bone falls to the ground to be stamped out from under your boots as internal organs slop out of your gullet and stain your shirt red with blood and hatred, but no this meager sacrifice cannot saciate your desire for innocent life. Are you happy with yourself? Do you feel ecstasy from the slaughter? Think of it's foster parents who where worried sick about their new child because they're unable to concive one naturally, and you just tore it apart like an animal from hell. That child has been abused all it's life and you put the nail in the coffin. Was the silence really worth it you heartless bastard!?")
+ // p = true
 }
 
+// if (p == true) {
+// h = h - 1
+// }
+// setInterval(function() {p}, 100);
+//
+// if (h == 9 && p == true) {
+//   addLine("You stomach is hurting.")
+// } else if (h == 8 && p == true) {
+//   addLine("You lose your appetite.")
+// } else if (h == 7 && p == true) {
+//   addLine("You vomit as your stomach feels like it's turning.")
+// } else if (h == 6 && p == true) {
+//   addLine("You feel constipated.")
+// } else if (h == 5 && p == true) {
+//   addLine("You feel nauseous.")
+// } else if (h == 4 && p == true) {
+//   addLine("You pain contininues to persist as you start to get irritable.")
+// } else if (h == 3 && p == true) {
+//   addLine("You start to lose your broken memory.")
+// } else if (h == 2 && p == true) {
+//   addLine("You get a sudden burst of energy.")
+// } else if (h == 1 && p == true) {
+//   addLine("You feel heavily fatigued.")
+// } else if (h == 0 && p == true) {
+//   addLine("You die of plumbism.")
+//   f = true
+// }
 let locations = [];
 player.move(start);

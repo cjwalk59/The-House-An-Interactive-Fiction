@@ -133,7 +133,7 @@ function keyDownHandler(e) {
       player = doAction(results[1], player, newLocation)
       console.log("Player location: " + player.location.name)
     } else {
-      addLine("Time passes... You feel like your going to puke.")
+      addLine("Time passes... You feel uneasy.")
     }
     document.getElementById("inputsm").value = "";
   }
