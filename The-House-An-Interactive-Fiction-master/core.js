@@ -9,6 +9,8 @@ var actions = [
   function(action, player, object) {
     if (action == 'enter' && object != null) {
       player.move(object)
+    } else if (p == true) {
+      h - 1
     }
     return player;
   },
@@ -16,6 +18,8 @@ var actions = [
     if (action == 'inspect') {
       console.log("Inspecting " + object.name)
       object.inspect(player)
+    } else if (p == true) {
+      h - 1
     }
     return player;
   },
@@ -25,6 +29,8 @@ var actions = [
       player.cameFrom = player.location;
       player.location = destination;
       player.location.enter();
+    } else if (p == true) {
+      h - 1
     }
     return player;
   },
@@ -133,7 +139,7 @@ function keyDownHandler(e) {
       player = doAction(results[1], player, newLocation)
       console.log("Player location: " + player.location.name)
     } else {
-      addLine("Time passes... You feel like your going to puke.")
+      addLine("Time passes... You feel uneasy.")
     }
     document.getElementById("inputsm").value = "";
   }
